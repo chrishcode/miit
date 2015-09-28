@@ -39,6 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Miit.io</div>
+                <h1>hejsan alla!</h1>
             </div>
         </div>
     </body>
