@@ -40,6 +40,7 @@
             <div class="content">
                 <div class="title">Miit.io</div>
                 <h1>hejsan alla!</h1>
+                <p>Hallå där, gittan!</p>
             </div>
         </div>
     </body>
