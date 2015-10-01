@@ -25,16 +25,17 @@
             </ul>
         </div>
     </nav>
-		<div class="container">
 		@yield('content')
-		</div>
 
-		<nav class="navbar navbar-default">
-			<div id="footer" class="container">
+
+		<div id="footer" class="container">
+	
+			<ul>
+				<li><a href="#"> &copy; Miit.io</a></li>
+				<li><a href="{{ url('/about') }}">About</a></li>
+				<li><a href="{{ url('/contact') }}">Contact</a></li>
+			</ul>
 		
-		
-		</div>
-		</nav>
 	</div>
 </div>
 

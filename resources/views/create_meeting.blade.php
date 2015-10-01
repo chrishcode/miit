@@ -2,7 +2,7 @@
 
 
 @section('content')
-
-<p>Hej</p><p>Hej</p>
-
+<div class="container">
+<p>Hej</p><p>Hej</p><p>Hej</p><p>Hej</p><p>Hej</p><p>Hej</p><p>Hej</p><p>Hej</p><p>Hej</p>
+</div>
 @endsection
