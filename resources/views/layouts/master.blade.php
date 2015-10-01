@@ -8,8 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
+<div id="wrapper">
 	<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div id="header" class="container">
             <div class="navbar-header">
                 <a class="logo navbar-brand" href="{{ url('/') }}"><img class="logoicon" alt="logo" src="img/logoicon.png">Miit.io</a>
             </div>
@@ -24,41 +25,18 @@
             </ul>
         </div>
     </nav>
-	<div class="container">
-		@yield('content')
-	</div>
-
-<!-- 	<div id="footer">
 		<div class="container">
-	        <ul class="footermenu">
-	            <li>
-	                &copy; miit.io</a>
-	            </li>
-	            <li>
-	                <a href="{{ url('/about') }}">About</a>
-	            </li>
-	            <li>
-	                <a href="{{ url('/contact') }}">Contact</a>
-	            </li>
-	        </ul>
-	    </div>
-	</div> -->
+		@yield('content')
+		</div>
 
-    <div id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container">
-                <ul class="nav navbar-nav footermenu">
-			        <li>
-		                &copy; miit.io</a>
-		            </li>
-		            <li>
-		                <a href="{{ url('/about') }}">About</a>
-		            </li>
-		            <li>
-		                <a href="{{ url('/contact') }}">Contact</a>
-		            </li>
-                </ul>
-        </div>
-    </div>
+		<nav class="navbar navbar-default">
+			<div id="footer" class="container">
+		
+		
+		</div>
+		</nav>
+	</div>
+</div>
 
 </body>
 </html>
