@@ -45,9 +45,11 @@ class MeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    // lägg tillbaka $id när det är dags för databaskoppling
+    public function show()
     {
-        //
+        return view('meeting');
     }
 
     /**

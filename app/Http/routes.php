@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::get('create', 'MeetingController@create');
+
+Route::get('/meeting', 'MeetingController@show');
