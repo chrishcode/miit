@@ -21,6 +21,41 @@
 			<input class="btn btn-danger" type="button" value="No">
 			<input class="btn btn-success" type="button" value="Yes">
 		</div>
+
+		<a href="#"><div class="questionmark">?</div></a>
+
+		<div class="moredates">
+			<p class="available">Available dates</p>
+			<div class="moredate">
+				<div class="caltop"><p>2015</p></div>
+				<p class="time">18  sep</p>
+				<p class="time">14:30</p>
+			</div>
+
+			<div class="moredate">
+				<div class="caltop"><p>2015</p></div>
+				<p class="time">18  sep</p>
+				<p class="time">14:30</p>
+			</div>
+
+			<div class="moredate">
+				<div class="caltop"><p>2015</p></div>
+				<p class="time">18  sep</p>
+				<p class="time">14:30</p>
+			</div>
+
+			<div class="moredate">
+				<div class="caltop"><p>2015</p></div>
+				<p class="time">18  sep</p>
+				<p class="time">14:30</p>
+			</div>
+
+			<div class="moredate">
+				<div class="caltop"><p>2015</p></div>
+				<p class="time">18  sep</p>
+				<p class="time">14:30</p>
+			</div>
+		</div>
 	</div>
 
 </div>

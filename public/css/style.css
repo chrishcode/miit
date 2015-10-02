@@ -117,11 +117,17 @@ body {
 
 .content {
 	margin-top: 100px;
+	padding-bottom: 100px;
 }
 
 .meetinginfo {
 	width: 100%;
 	/*background-color: gray;*/
+}
+
+.meetinginfo a {
+	text-decoration: none;
+	width: 40px;
 }
 
 .info {
@@ -184,11 +190,65 @@ body {
 	height: 40px;
 }
 
+.btn-danger:hover {
+	background-color: #F26363;
+}
+
 .btn-success {
 	border-radius: 100px;
 	background-color: #74F7A8;
 	border: none;
 	width: 197px;
 	height: 40px;
+}
+
+.btn-success:hover {
+	background-color: #60E593;
+}
+
+.questionmark {
+	width: 40px;
+	height: 40px;
+	border-radius: 100px;
+	border: 1px solid #BAC1C8;
+	color: #BAC1C8;
+	text-align: center;
+	padding-top: 8px;
+	padding-left: 1px;
+	font-size: 16px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+
+.moredates {
+	width: 100%;
+	margin-top: 100px;
+	text-align: center;
+	/*background-color: gray;*/
+}
+
+.moredates .available {
+	margin-bottom: 40px;
+}
+
+.moredate {
+	width: 120px;
+	height: 120px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	float: left;
+	margin-right: 65px;
+	border: 2px solid #F2F2F2;
+}
+
+.moredate .caltop {
+	height: 20px;
+	margin-bottom: 15px;
+}
+
+.moredate .time {
+	font-size: 20px;
+	padding-bottom: 0;
 }
 
