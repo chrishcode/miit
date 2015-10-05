@@ -5,7 +5,6 @@
 <div class="container content">
 
 	<div class="meetinginfo">
-		<div class="circle infonumbers">1 Information about meeting</div>
 		<div class="info">
 			<h2>Meeting with Jesper</h2>
 			<h5>Handledning Dynamiska webbsystem</h5>
@@ -60,5 +59,10 @@
 		</div>
 		
 	</div>
+</div>
+
+{{-- overlay med information --}}
+<div id="overlay">
+	<div class="circle infonumbers">1 Information about meeting</div>
 </div>
 @endsection

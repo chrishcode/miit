@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class MeetingController extends Controller
 {
+
+    public function homepage()
+    {
+        return view('homepage');
+    }
+
     /**
      * Display a listing of the resource.
      *

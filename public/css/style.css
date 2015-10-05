@@ -269,4 +269,82 @@ body {
 	height: 30px;
 	float: right;
 	font-size: 12px;
+	margin-right: 200px;
+	margin-top: 100px;
 }
+
+#overlay {
+	position:fixed;
+	top:0;
+	left:0;
+	background:rgba(255,255,255,0.6);
+	z-index:5;
+	width:100%;
+	height:100%;
+	display:none;
+}
+
+
+/*Startsidan egen css*/
+
+#startpagenavbar {
+	width: 100%;
+	height: 500px;
+	border: none;
+	background-image: url('../img/startpagebg.png');
+	background-size: cover;
+}
+
+
+#startpageheaderinfo {
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+	margin-top: 80px;
+	font-weight: 300;
+	font-size: 35px;
+}
+
+#startpagebtns {
+	margin-top: 60px;
+}
+
+.registerbtn {
+	background-color: #34495E;
+}
+
+.registerbtn:hover {
+	background-color: #233F5B;
+}
+
+.startpagequestionlink {
+	display: block;
+	text-decoration: none;
+	width: 40px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+
+.startpagequestionlink:hover {
+	text-decoration: none;
+}
+
+.learnmore {
+	font-size: 11px;
+	margin-top: 10px;
+}
+
+#howitworks {
+	text-align: center;
+}
+
+#howitworks h3 {
+	margin-bottom: 30px;
+}
+
+.content p {
+	font-size: 12px;
+}
+
+/*Startsidan egen css slut*/
