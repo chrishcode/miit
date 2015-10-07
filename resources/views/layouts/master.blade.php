@@ -12,15 +12,24 @@
 	<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div id="header" class="container">
             <div class="navbar-header">
-                <a class="logo navbar-brand" href="{{ url('/') }}"><img class="logoicon" alt="logo" src="img/logoicon.png">Miit.io</a>
+                <a class="logo navbar-brand" href="{{ url('/') }}"><img class="logoicon" alt="logo" src="../img/logoicon.png">Miit.io</a>
             </div>
           
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{ url('/register') }}">Register</a>
+                @if(Auth::check())
+                	<a href="{{ url('create') }}">New meeting</a>
+                @else
+                    <a href="{{ url('auth/register') }}">Register</a>
+                @endif
                 </li>
                 <li>
-                    <a href="{{ url('/login') }}">Login</a>
+                {{-- Kollar om användaren är inloggad --}}
+                @if(Auth::check()) 
+                    <a href="{{ url('auth/logout') }}">Logout</a>
+                @else 
+                	<a href="{{ url('auth/login') }}">Login</a>
+                @endif    
                 </li>
             </ul>
         </div>

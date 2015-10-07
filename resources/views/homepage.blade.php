@@ -16,11 +16,20 @@
             </div>
           
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{ url('/register') }}">Register</a>
+				<li>
+                @if(Auth::check())
+                	<a href="{{ url('create') }}">New meeting</a>
+                @else
+                    <a href="{{ url('auth/register') }}">Register</a>
+                @endif
                 </li>
                 <li>
-                    <a href="{{ url('/login') }}">Login</a>
+                {{-- Kollar om användaren är inloggad --}}
+                @if(Auth::check()) 
+                    <a href="{{ url('auth/logout') }}">Logout</a>
+                @else 
+                	<a href="{{ url('auth/login') }}">Login</a>
+                @endif    
                 </li>
             </ul>
         </div>
@@ -30,7 +39,7 @@
 
         	<div id="startpagebtns">		
 				<input onclick="window.location = '{{ url('create') }}'" class="btn btn-danger" type="button" value="Create new meeting">
-				<input onclick="window.location = '{{ url('register') }}'" class="btn btn-success registerbtn" type="button" value="Register">
+				<input onclick="window.location = '{{ url('auth/register') }}'" class="btn btn-success registerbtn" type="button" value="Register">
 			</div>
 
 			<a href="#howitworks" class="startpagequestionlink">
