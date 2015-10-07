@@ -172,14 +172,14 @@ body {
 	margin-bottom: 90px;
 }
 
-.caltop p {
+.datetime .caltop p {
 	font-size: 25px;
 	color: #ffffff;
 	padding-top: 12px;
 	font-weight: 300;
 }
 
-.time {
+.datetime .time {
 	font-size: 40px;
 	font-weight: 300;
 	padding-bottom: 20px;
@@ -261,6 +261,11 @@ body {
 	padding-bottom: 0;
 }
 
+.moredate .caltop p {
+	color: #ffffff;
+	padding-top: 1px;
+}
+
 
 /* questions info*/
 
@@ -335,16 +340,85 @@ body {
 	margin-top: 10px;
 }
 
-#howitworks {
+.howitworks {
 	text-align: center;
 }
 
-#howitworks h3 {
+.howitworks h3 {
 	margin-bottom: 30px;
 }
 
 .content p {
 	font-size: 12px;
+}
+
+#howitworksicons {
+	width: 100%;
+	height: 310px;
+	/*background-color: gray;*/
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+#circleswrap {
+	width: 80%;
+	margin: 0 auto;
+	/*border: 1px solid black;*/
+}
+
+.howitworkscircle {
+	width: 150px;
+	height: 150px;
+	border: 2px solid #EBEBEB;
+	border-radius: 100px;
+	/*float: left;*/
+	/*margin-right: 69px;*/
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.lastcircle {
+	margin-right: 0;
+}
+
+.howitworkstext {
+	width: 33.3%;
+	text-align: center;
+	padding-right: 20px;
+	padding-left: 20px;
+	float: left;
+}
+
+#responsivescreens {
+	width: 60%;
+	height: 350px;
+	margin: 0 auto;
+	/*background-color: gray;*/
+	margin-top: 50px;
+	background-image: url('../img/device.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.circle1 {
+	background-image: url('../img/1.png');
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.circle2 {
+	background-image: url('../img/2.png');
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.circle3 {
+	background-image: url('../img/3.png');
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 /*Startsidan egen css slut*/

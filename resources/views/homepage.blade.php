@@ -29,11 +29,11 @@
         	<p>Schedule meetings with minimal effort.</p>
 
         	<div id="startpagebtns">		
-				<input class="btn btn-danger" type="button" value="Create new meeting">
-				<input class="btn btn-success registerbtn" type="button" value="Register">
+				<input onclick="window.location = '{{ url('create') }}'" class="btn btn-danger" type="button" value="Create new meeting">
+				<input onclick="window.location = '{{ url('register') }}'" class="btn btn-success registerbtn" type="button" value="Register">
 			</div>
 
-			<a href="#" class="startpagequestionlink">
+			<a href="#howitworks" class="startpagequestionlink">
 				<div class="circle">?</div>
 			</a>
 			<p class="learnmore">Learn more</p>
@@ -46,11 +46,40 @@
 		@yield('content')
 		
 		<div class="container content">
-			<div id="howitworks">
+			<div id="howitworks" class="howitworks">
 				<h3>How it works</h3>
 				<p>Miit.io is very simple to use.</p>
 				<p>With only a few steps you can schedule a meeting with your colleague</p>
 			</div>
+
+			<div id="howitworksicons">				
+				<div class="howitworkstext">
+				<div class="howitworkscircle circle1"></div>
+					<h5>1. Create new meeting</h5>
+					<p>Start by creating a new meeting and fill in all the information about the meeting.</p>
+				</div>
+
+				<div class="howitworkstext">
+				<div class="howitworkscircle circle2"></div>
+					<h5>2. Invite your colleague</h5>
+					<p>Invite your colleague or friend to the meeting. They can then choose one of the dates you set that fits their schedule.</p>
+				</div>
+
+				<div class="howitworkstext">
+				<div class="howitworkscircle circle3"></div>
+					<h5>3. Your meeting is set!</h5>
+					<p>When your colleague has chosen a date you will receive a notification an your meeting will be set.</p>
+				</div>
+			</div>
+
+			<div class="howitworks">
+				<h3>How it looks</h3>
+				<p>Miit.io has a beautiful and simple UI.</p>
+				<p>It's also responsive which means you can use it on any device.</p>
+			</div>
+
+			<div id="responsivescreens"></div>
+
 		</div>
 
 		<div id="footer" class="container">
