@@ -105,9 +105,19 @@ body {
 	text-decoration: none;
 }
 
+
+/*New meeting booking form*/
 #Meetingform{
 	position: relative;
 	left: 33%;
-	width: 33%
+	width: 300px;
 }
+
+#newmeeting{
+	margin: 0px auto 40px auto;
+	font-size: 40px;
+	text-align: center;
+	font-weight: 300;
+}
+
 
