@@ -15,6 +15,10 @@ body {
 	width: 70%;
 }
 
+.form-control {
+	margin-bottom: 20px;
+}
+
 .nav {
 	padding-top: 5px;
 	font-weight: 300;
@@ -422,3 +426,19 @@ body {
 }
 
 /*Startsidan egen css slut*/
+
+
+/*Auth pages*/
+
+.authform {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.loginbtn {
+	margin-top: 20px;
+}
+
+
+/*Auth pages end*/
