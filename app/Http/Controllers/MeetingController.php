@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class MeetingController extends Controller
 {
+
+    public function homepage()
+    {
+        return view('homepage');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,9 +51,11 @@ class MeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    // lägg tillbaka $id när det är dags för databaskoppling
+    public function show()
     {
-        //
+        return view('meeting');
     }
 
     /**

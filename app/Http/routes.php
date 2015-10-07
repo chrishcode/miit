@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');
+
+Route::get('/meeting', 'MeetingController@show');
