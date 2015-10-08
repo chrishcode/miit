@@ -6,9 +6,9 @@
 
 	<div class="meetinginfo">
 		<div class="info">
-			<h2>Meeting with Jesper</h2>
-			<h5>Handledning Dynamiska webbsystem</h5>
-			<p>Hej Petter! Vi ska ju boka handledning för RET, välj den tid som passar dig bäst.</p>
+			<h2>Meeting with {{ $meeting[0]['user_name'] }}</h2>
+			<h5>{{ $meeting[0]['title'] }}</h5>
+			<p>{{ $meeting[0]['description'] }}</p>
 		</div>
 
 		<div class="datetime">
