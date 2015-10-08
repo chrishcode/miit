@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Miit.io</title>
+
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css') }}">
+
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css') }}">
+
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery.datetimepicker.css') }}">
+
 	<link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Comfortaa:400,300,700') }}" rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+
 </head>
 <body>
 <div id="wrapper">
@@ -25,6 +35,7 @@
             </ul>
         </div>
     </nav>
+
 		@yield('content')
 
 
@@ -37,7 +48,29 @@
 			</ul>
 		
 	</div>
-</div>
+</div> 
+
+
+
+<script src="{{ URL::asset('jquery.js') }}"></script>
+<script src="{{ URL::asset('build/jquery.datetimepicker.full.min.js') }}"></script>
+
+<script type="text/javascript">
+$(function() {
+jQuery('#datetimepicker').datetimepicker({
+format:'d-m-Y H:i'
+});
+
+$(document).ready(function(){
+
+    $("#btn2").click(function(){
+        $("#timeinput").append("<input id='datetimepicker' type='text' class='form-control' placeholder='Add dates'>");
+    });
+});
+
+});
+</script>
 
 </body>
+
 </html>
