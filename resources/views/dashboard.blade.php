@@ -32,17 +32,17 @@
 
 <hr class="hr">
 
-	<h3 id="meet1">Jesper Hakeröd</h3>
+	<h3 id="meeting1">Jesper Hakeröd</h3>
 		<img class="numb1" alt="1" src="img/numb1.png">
 		<img class="mrgreen" alt="1" src="img/green.png">
 	<p id="meet2">Handledning</p>
 
-	<h3 id="meet1">Martin Gustafsson</h3>
+	<h3 id="meeting2">Martin Gustafsson</h3>
 		<img class="numb1" alt="1" src="img/numb1.png">
 		<img class="mrgreen" alt="1" src="img/red.png">
 	<p id="meet2">Kör inte de tricket..</p>
 
-	<h3 id="meet1">Jonas Nilsson</h3>
+	<h3 id="meeting3">Jonas Nilsson</h3>
 		<img class="numb1" alt="1" src="img/numb1.png">
 		<img class="mrgreen" alt="1" src="img/yellow.png">	
 	<p id="meet2">Lite käbbel om...</p>
