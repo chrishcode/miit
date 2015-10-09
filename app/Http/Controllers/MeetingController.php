@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Meeting;
+use App\Dates;
 
 class MeetingController extends Controller
 {
@@ -53,9 +55,16 @@ class MeetingController extends Controller
      */
 
     // lägg tillbaka $id när det är dags för databaskoppling
-    public function show()
+    public function show($id)
     {
-        return view('meeting');
+        $meeting = Meeting::where('url_id', '=', $id)->get();
+
+        $dates = array();
+        array_push($dates, $meeting[0]->dates);
+
+        // return $meeting;
+        // return $dates;
+        return view('meeting', compact('meeting', 'dates'));
     }
 
     /**

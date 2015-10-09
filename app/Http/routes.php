@@ -19,11 +19,13 @@ Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');
 
-Route::get('meeting', 'MeetingController@show');
+// Route::get('meeting', 'MeetingController@show');
 
 Route::get('home', function() {
 	return view('homepage');
 });
+
+Route::get('/{id}', 'MeetingController@show');
 
 // Login/logout
 Route::get('auth/login', 'Auth\AuthController@getLogin');
