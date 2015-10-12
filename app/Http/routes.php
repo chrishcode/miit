@@ -30,6 +30,9 @@ Route::get('home', function() {
 
 Route::get('/{id}', 'MeetingController@show');
 
+//hämtar ett specifikt möte i json-format
+Route::get('json/{id}', 'MeetingController@showjson');
+
 // Login/logout
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

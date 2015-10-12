@@ -12,10 +12,11 @@
 		</div>
 
 		{{-- Det här stora datumet kanske man borde hämta med ajax med hjälp av id i moredates-divarna, onclick --}}
+
 		<div class="datetime">
 			<div class="caltop"><p>{{ substr($dates[0][0]['date'], 6, 4) }}</p></div>
-			<p class="time">{{ substr($dates[0][0]['date'], 0, 2) . '/' . substr($dates[0][0]['date'], 3, 2) }}</p>
-			<p class="time">{{ substr($dates[0][0]['date'], 11) }}</p>
+			<p class="time timedate">{{ substr($dates[0][0]['date'], 0, 2) . '/' . substr($dates[0][0]['date'], 3, 2) }}</p>
+			<p class="time timetime">{{ substr($dates[0][0]['date'], 11) }}</p>
 		</div>
 		
 
@@ -44,4 +45,34 @@
 <div id="overlay">
 	<div class="circle infonumbers">1 Information about meeting</div>
 </div>
+
+{{-- Hämtar urlid för möte så man kan använda i javascript --}}
+<div id="url" data-url-id="{{ $meeting[0]['url_id'] }}">
+
+{{-- Hämta möte med ajax --}}
+{{-- Flytta till master sen, eller helst separat js fil --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>	
+<script>
+$(document).ready(function(){
+    $(".moredate").click(function(){
+    	var dateId = $(this).attr('id');
+    	var urlId = $('#url').data("url-id");
+    	
+        $.ajax({
+        	url: "http://localhost:8000/json/" + urlId, 
+        	success: function(result) {
+        		var meeting = result;
+        		
+        		//fixa js substring nästa gång
+        		$(".datetime .caltop p").text(meeting[0].dates[dateId].date);
+        		$(".datetime .timedate").text(meeting[0].dates[dateId].date);
+        		$(".datetime .timetime").text(meeting[0].dates[dateId].date); 
+        		
+            	console.log(meeting[0].dates[dateId].date);//bara för att testa
+            	
+        	}
+    	});
+    });
+});
+</script>
 @endsection

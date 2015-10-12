@@ -54,7 +54,7 @@ class MeetingController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // lägg tillbaka $id när det är dags för databaskoppling
+    //hämtar ett specifikt möte
     public function show($id)
     {
         $meeting = Meeting::where('url_id', '=', $id)->get();
@@ -101,8 +101,20 @@ class MeetingController extends Controller
         //
     }
 
+    //visar dashboard
     public function dashboard()
     {
         return view('dashboard');
+    }
+
+    //hämtar ett specifikt möte i json-format
+    public function showjson($id)
+    {
+        $meeting = Meeting::where('url_id', '=', $id)->get();
+
+        $dates = array();
+        array_push($dates, $meeting[0]->dates);
+
+        return $meeting;
     }
 }
