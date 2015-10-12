@@ -36,42 +36,43 @@
  
   <button type="submit" id="button-newmeeting" class="btn btn-success">New meeting</button>
 
-{{--   <div class="form-group">
-    <label for="Name">Name</label>
-    <input type="Name" class="form-control" id="Name" placeholder="Name">
-  </div> --}}
+</form>
 
-{{--   <div class="form-group">
-    <label for="Email">Email</label>
-    <input type="Email" class="form-control" id="Email" placeholder="Email">
-  </div> --}}
+{{-- <form id="Meetingform">
 
-{{-- 
+<h2 id="newmeeting">New meeting</h2>
+
   <div class="form-group">
-  <label for="Description">Description</label>
-  <textarea class="form-control" rows="5" id="Description" placeholder="Description"></textarea>
-</div> --}}
+    <label for="name">Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Name">
+  </div>
 
-  {{-- <div class="form-group" id="timeinput">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+  <label for="description">Description</label>
+  <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
+</div>
+
+  <div class="form-group" id="timeinput">
   <label for="exampleInputEmail1">Add dates</label>
 	<input id="datetimepicker" type="text" class="form-control" placeholder="Add dates">
-	</div> --}}
+	</div>
 
-	{{-- <a id="btn2" href="#">Add</a> --}}
+	<a id="btn2" href="#">Add</a>
 
-	 {{-- <div class="form-group">
-    <label for="Email/Invite">Email/Invite</label>
-    <input type="Email/Invite" class="form-control" id="Email/Invite" placeholder="Email/Invite">
+	 <div class="form-group">
+    <label for="email/invite">Email/Invite</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Email/Invite">
   </div>
  
-  <button type="submit" class="btn btn-success">New meeting</button> --}}
+  <button type="submit" class="btn btn-success">New meeting</button>
 
-  {{-- <fieldset>
-            <div id="extender"></div>
-            <p><a href="#" id="add">Add</a></p>
-    </fieldset> --}}
 
-</form>
+</form> --}}
 </div>
 
 @endsection

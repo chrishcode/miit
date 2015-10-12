@@ -11,9 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');
+
+
+Route::get('dashboard', 'MeetingController@dashboard');
+
+// Route::get('meeting', 'MeetingController@show');
+
+Route::get('home', function() {
+	return view('homepage');
+});
+
+Route::get('/{id}', 'MeetingController@show');
+
+// Login/logout
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// register
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');

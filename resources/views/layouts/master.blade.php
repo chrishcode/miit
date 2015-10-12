@@ -10,37 +10,42 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css') }}">
 
+
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.min.css') }}">
 
 	<link rel="stylesheet" href="{{ URL::asset('http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css') }}" />
 
-	{{-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.css') }}"> --}}
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery.datetimepicker.css') }}">
 
-	{{-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery.datetimepicker.css') }}"> --}}
 
 	<link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Comfortaa:400,300,700') }}" rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
-
-	{{-- <script src="{{ URL::asset('jquery.js') }}"></script>
-	<script src="{{ URL::asset('build/jquery.datetimepicker.full.min.js') }}"></script> --}}
-
 </head>
 <body>
 <div id="wrapper">
 	<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div id="header" class="container">
             <div class="navbar-header">
-                <a class="logo navbar-brand" href="{{ url('/') }}"><img class="logoicon" alt="logo" src="img/logoicon.png">Miit.io</a>
+                <a class="logo navbar-brand" href="{{ url('/') }}"><img class="logoicon" alt="logo" src="../img/logoicon.png">Miit.io</a>
             </div>
           
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{ url('/register') }}">Register</a>
+                @if(Auth::check())
+                	<a href="{{ url('create') }}">New meeting</a>
+                @else
+                    <a href="{{ url('auth/register') }}">Register</a>
+                @endif
                 </li>
                 <li>
-                    <a href="{{ url('/login') }}">Login</a>
+                {{-- Kollar om användaren är inloggad --}}
+                @if(Auth::check()) 
+                    <a href="{{ url('auth/logout') }}">Logout</a>
+                @else 
+                	<a href="{{ url('auth/login') }}">Login</a>
+                @endif    
                 </li>
             </ul>
         </div>
@@ -89,41 +94,26 @@ $(function() {
         	yearRange: "1900:+10",showOn:'focus'}).focus();
     });
 
-    //  //add input
-    // $('a#add').click(function() {
-    //     $(options).fadeIn("slow").appendTo('#extender'); 
-    //     i++;    
-    //     return false;
-    // });
+});
+</script>
 
-    // var options = '<p><input type="text" class="form-control" placeholder="Add dates" name="dates[]" value="" size="10" />   <a href="#" class="remove">Remove</a></p>';    
+<script src="{{ URL::asset('build/jquery.datetimepicker.full.min.js') }}"></script>
 
-    // //add input
-    // $('a#add').click(function() {
-    //     $(options).fadeIn("slow").appendTo('#extender'); 
-    //     i++;    
-    //     return false;
-    // });
+<script type="text/javascript">
+$(function() {
+jQuery('#datetimepicker').datetimepicker({
+format:'d-m-Y H:i'
+});
 
-    // $('.form-control').live('click', function() {
-    //     $(this).datepicker('destroy').datepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",
-    //     	yearRange: "1900:+10",showOn:'focus'}).focus();
-    // });
+$(document).ready(function(){
+
+    $("#btn2").click(function(){
+        $("#timeinput").append("<input id='datetimepicker' type='text' class='form-control' placeholder='Add dates'>");
+    });
+});
 
 });
 
-
-
-// jQuery('#datetimepicker').datetimepicker({
-// 	format:'d-m-Y H:i'
-// });
-
-// $(document).ready(function(){
-
-//     $("#btn2").click(function(){
-//         $("#timeinput").append("<input id='datetimepicker' type='text' class='form-control' placeholder='Add dates'>");
-//     });
-// });
 </script>
 
 </body>
