@@ -10,13 +10,21 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css') }}">
 
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery.datetimepicker.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.min.css') }}">
 
 	<link rel="stylesheet" href="{{ URL::asset('http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css') }}" />
+
+	{{-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.css') }}"> --}}
+
+	{{-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery.datetimepicker.css') }}"> --}}
 
 	<link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Comfortaa:400,300,700') }}" rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+
+	{{-- <script src="{{ URL::asset('jquery.js') }}"></script>
+	<script src="{{ URL::asset('build/jquery.datetimepicker.full.min.js') }}"></script> --}}
 
 </head>
 <body>
@@ -52,33 +60,63 @@
 	</div>
 </div> 
 
-
-<script src="{{ URL::asset('jquery.js') }}"></script>
-<script src="{{ URL::asset('build/jquery.datetimepicker.full.min.js') }}"></script>
-
-<script>jQuery('#datetimepicker').datetimepicker({
-	format:'d-m-Y H:i'
-});
-</script>
-
+<script src="{{ URL::asset('http://code.jquery.com/jquery-1.8.2.js') }}"></script>
+<script src="{{ URL::asset('http://code.jquery.com/ui/1.9.0/jquery-ui.js') }}"></script> 
+<script src="{{ URL::asset('jquery-ui-timepicker-addon.js') }}"></script>
+<script src="{{ URL::asset('jquery-ui-timepicker-addon.min.js') }}"></script>
+<script src="{{ URL::asset('jquery-ui-sliderAccess.js') }}"></script>
 <script type="text/javascript">
 $(function() {
 
-$('.remove').live('click', function() {
+	$("a#add").click(function(){
+        $(options).fadeIn("slow").appendTo("#timeinput");
+        i++;    
+        return false;
+    });
+
+    //fadeout selected item and remove
+    $('.remove').live('click', function() {
         $(this).parent().fadeOut(300, function(){ 
             $(this).empty();
             return false;
         });
     });
 
-  var options = '<p><input id="datetimepicker" type="text" class="datepicker" name="dates[]" value="" size="10" placeholder="Add dates"/>   <a href="#" class="remove">Remove</a></p>'; 
+    var options = '<p><input type="text" class="datetimepicker" placeholder=" Add dates" name="dates[]" value="" size="10" />	<br><a href="#" class="remove">Remove</a></p>';
 
-$('a#add').click(function() {
-        $(options).fadeIn("slow").appendTo('#extender'); 
-        i++;    
-        return false;
+    $('.datetimepicker').live('click', function() {
+        $(this).datetimepicker('destroy').datetimepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",
+        	yearRange: "1900:+10",showOn:'focus'}).focus();
     });
+
+    //  //add input
+    // $('a#add').click(function() {
+    //     $(options).fadeIn("slow").appendTo('#extender'); 
+    //     i++;    
+    //     return false;
+    // });
+
+    // var options = '<p><input type="text" class="form-control" placeholder="Add dates" name="dates[]" value="" size="10" />   <a href="#" class="remove">Remove</a></p>';    
+
+    // //add input
+    // $('a#add').click(function() {
+    //     $(options).fadeIn("slow").appendTo('#extender'); 
+    //     i++;    
+    //     return false;
+    // });
+
+    // $('.form-control').live('click', function() {
+    //     $(this).datepicker('destroy').datepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",
+    //     	yearRange: "1900:+10",showOn:'focus'}).focus();
+    // });
+
 });
+
+
+
+// jQuery('#datetimepicker').datetimepicker({
+// 	format:'d-m-Y H:i'
+// });
 
 // $(document).ready(function(){
 

@@ -106,18 +106,123 @@ body {
 }
 
 
-/*New meeting booking form*/
-#Meetingform{
+.datetimepicker{
+	width: 100%;
+	height: auto;
+	border: 1px solid #BBB;
+	border-right: 1;
+	padding: 5px;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+	/*outline: none;*/
+}
+
+#newmeetingform{
 	position: relative;
-	left: 33%;
-	width: 300px;
+	left: 50%;
+	margin-left: -160px;
+	width: 320px;
 }
 
 #newmeeting{
-	margin: 0px auto 40px auto;
+	font-size: 40px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.edit-name{
+	width: 20px;
+	height: 20px;
+	color: #34495e;
+	opacity: 0.4;
+	position: relative;
+	right: 10%;
+	top: 25px;
+}
+
+#description{
+	margin: auto auto 30px auto;
+}
+
+#emailinvite{
+	margin-top: 10px;
+}
+
+#add{
+	margin: auto auto 30px auto;
+	position: relative;
+	right: 5%;
+	text-decoration: none;
+	color: #34495e;
+	padding: 30 0 30 0;
+}
+
+#add:hover{
+	color: #F77474;
+	text-decoration: none;
+
+}
+
+#adddates{
+	width: 20px;
+	height: 20px;
+	opacity: 0.4;
+	position: relative;
+	right: 5%;
+}
+
+.remove{
+	text-decoration: none;
+	color: #34495e;
+	
+}
+
+.remove:hover{
+	color: #F77474;
+	text-decoration: none;
+
+}
+
+/*
+#newmeetingform{
+	position: relative;
+	left: 24%;
+	width: 320px;
+	margin-top: -24px;
+}
+
+#button-newmeeting{
+	width: 120px;
+	margin-left: 77px;
+}*/
+
+/*#newmeeting{
+	margin: 5px auto 40px auto;
 	font-size: 40px;
 	text-align: center;
 	font-weight: 300;
+	margin-top: 15px;
+	color: #34495e;
 }
 
+.edit-name{
+	width: 20px;
+	height: 20px;
+	margin-left: 35px;
+	color: #34495e;
+	opacity: 0.4;
+	margin-top: 5px;
+}
+*/
 
