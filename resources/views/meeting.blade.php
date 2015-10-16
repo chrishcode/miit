@@ -63,10 +63,18 @@ $(document).ready(function(){
         	success: function(result) {
         		var meeting = result;
         		
-        		//fixa js substring nästa gång
-        		$(".datetime .caltop p").text(meeting[0].dates[dateId].date);
-        		$(".datetime .timedate").text(meeting[0].dates[dateId].date);
-        		$(".datetime .timetime").text(meeting[0].dates[dateId].date); 
+        		//delar upp datum i år datum och tid
+        		var fullDate = meeting[0].dates[dateId].date;
+        		year = fullDate.substring(6, 10);
+
+        		date = fullDate.substring(0, 5);
+        		date = date.replace('-', '/');
+
+        		time = fullDate.substring(11, 16);
+
+        		$(".datetime .caltop p").text(year);
+        		$(".datetime .timedate").text(date);
+        		$(".datetime .timetime").text(time); 
         		
             	console.log(meeting[0].dates[dateId].date);//bara för att testa
             	
