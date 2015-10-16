@@ -106,17 +106,5 @@ class MeetingController extends Controller
         return view('dashboard');
     }
 
-    // public function show($id)
-    // {
-    //     $meeting = Meeting::where('url_id', '=', $id)->get();
-
-    //     $dates = array();
-    //     array_push($dates, $meeting[0]->dates);
-
-    //     // return $meeting;
-    //     // return $dates;
-    //     return view('meeting', compact('meeting', 'dates'));
-    // }
-
     
 }
