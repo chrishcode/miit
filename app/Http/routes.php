@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+//Route::get('dashboard' 'DashboardController@dashboard');
+
 Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');

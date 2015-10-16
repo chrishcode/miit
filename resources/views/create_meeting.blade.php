@@ -3,7 +3,42 @@
 @section('content')
 
 <div id="content" class="container">
-<form id="Meetingform">
+
+<form id="newmeetingform">
+
+<h2 id="newmeeting">New meeting</h2>
+
+<div class="form-group">
+        <img class="edit-name" alt="User" src="img/edit-name.png">
+        <input type="text" class="form-control" id="newmeetingform1" placeholder="Name">
+  </div>
+
+  <div class="form-group">
+        <img class="edit-name" alt="Email" src="img/edit-email.png">
+        <input type="text" class="form-control" id="newmeetingform2" placeholder="Email">
+    </div>
+
+    <div class="form-group" id="description">
+  <img class="edit-name" alt="User" src="img/edit-name.png">
+  <textarea class="form-control" rows="3" id="newmeetingform3" placeholder="Description"></textarea>
+</div>
+
+
+<a href="#" id="add"><img id="adddates" alt="User" src="img/add-dates.png">Add dates</a>
+<div id="timeinput">
+
+</div>
+
+  <div class="form-group" id="emailinvite">
+     <img class="edit-name" alt="Email" src="img/edit-email.png">
+    <input type="text" class="form-control" id="newmeetingform4" placeholder="Email/Invite">
+  </div>
+ 
+  <button type="submit" id="button-newmeeting" class="btn btn-success">New meeting</button>
+
+</form>
+
+{{-- <form id="Meetingform">
 
 <h2 id="newmeeting">New meeting</h2>
 
@@ -36,7 +71,8 @@
  
   <button type="submit" class="btn btn-success">New meeting</button>
 
-</form>
+
+</form> --}}
 </div>
 
 @endsection

@@ -10,12 +10,18 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css') }}">
 
+
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery-ui-timepicker-addon.min.css') }}">
+
+	<link rel="stylesheet" href="{{ URL::asset('http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css') }}" />
+
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('jquery.datetimepicker.css') }}">
+
 
 	<link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Comfortaa:400,300,700') }}" rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
-
 </head>
 <body>
 <div id="wrapper">
@@ -59,9 +65,38 @@
 	</div>
 </div> 
 
+<script src="{{ URL::asset('http://code.jquery.com/jquery-1.8.2.js') }}"></script>
+<script src="{{ URL::asset('http://code.jquery.com/ui/1.9.0/jquery-ui.js') }}"></script> 
+<script src="{{ URL::asset('jquery-ui-timepicker-addon.js') }}"></script>
+<script src="{{ URL::asset('jquery-ui-timepicker-addon.min.js') }}"></script>
+<script src="{{ URL::asset('jquery-ui-sliderAccess.js') }}"></script>
+<script type="text/javascript">
+$(function() {
 
+	$("a#add").click(function(){
+        $(options).fadeIn("slow").appendTo("#timeinput");
+        i++;    
+        return false;
+    });
 
-<script src="{{ URL::asset('jquery.js') }}"></script>
+    //fadeout selected item and remove
+    $('.remove').live('click', function() {
+        $(this).parent().fadeOut(300, function(){ 
+            $(this).empty();
+            return false;
+        });
+    });
+
+    var options = '<p><input type="text" class="datetimepicker" placeholder=" Add dates" name="dates[]" value="" size="10" />	<br><a href="#" class="remove">Remove</a></p>';
+
+    $('.datetimepicker').live('click', function() {
+        $(this).datetimepicker('destroy').datetimepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",
+        	yearRange: "1900:+10",showOn:'focus'}).focus();
+    });
+
+});
+</script>
+
 <script src="{{ URL::asset('build/jquery.datetimepicker.full.min.js') }}"></script>
 
 <script type="text/javascript">
@@ -78,6 +113,7 @@ $(document).ready(function(){
 });
 
 });
+
 </script>
 
 </body>
