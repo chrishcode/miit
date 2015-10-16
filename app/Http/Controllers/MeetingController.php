@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Meeting;
 use App\Dates;
+use Mail;
 
 class MeetingController extends Controller
 {
@@ -116,5 +117,16 @@ class MeetingController extends Controller
         array_push($dates, $meeting[0]->dates);
 
         return $meeting;
+    }
+
+    public function sendMail($bookedDate) 
+    {
+        $mailContent = 'Your meeting with' . ' ' . '{$userName}' . ' ' . 'is scheduled at' . ' ' . $bookedDate;
+
+        Mail::raw($mailContent, function ($message) {
+            $message->from('miit.io.email@gmail.com', 'Miit.io');
+            $message->to('miit.io.email@gmail.com', 'Petter Romhagen');
+            $message->subject('Your meeting with {{$userName} is scheduled!');
+        });
     }
 }

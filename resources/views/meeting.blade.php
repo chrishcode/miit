@@ -21,7 +21,7 @@
 		
 
 		<div class="btns">
-			<input class="btn btn-danger" type="button" value="No">
+			<input id="no" class="btn btn-danger" type="button" value="No">
 			<input class="btn btn-success" type="button" value="Yes">
 		</div>
 
@@ -55,6 +55,35 @@
 <script>
 $(document).ready(function(){
     $(".moredate").click(function(){
+    	var dateId = $(this).attr('id');
+    	var urlId = $('#url').data("url-id");
+    	
+        $.ajax({
+        	url: "http://localhost:8000/json/" + urlId, 
+        	success: function(result) {
+        		var meeting = result;
+        		
+        		//delar upp datum i år datum och tid
+        		var fullDate = meeting[0].dates[dateId].date;
+        		year = fullDate.substring(6, 10);
+
+        		date = fullDate.substring(0, 5);
+        		date = date.replace('-', '/');
+
+        		time = fullDate.substring(11, 16);
+
+        		$(".datetime .caltop p").text(year);
+        		$(".datetime .timedate").text(date);
+        		$(".datetime .timetime").text(time); 
+        		
+            	console.log(meeting[0].dates[dateId].date);//bara för att testa
+            	
+        	}
+    	});
+    });
+
+    //den här ska byta till nästa date när man clickar på nej-knappen
+    $("#no").click(function(){
     	var dateId = $(this).attr('id');
     	var urlId = $('#url').data("url-id");
     	

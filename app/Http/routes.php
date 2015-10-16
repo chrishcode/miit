@@ -33,6 +33,8 @@ Route::get('/{id}', 'MeetingController@show');
 //hämtar ett specifikt möte i json-format
 Route::get('json/{id}', 'MeetingController@showjson');
 
+Route::get('sendmail/{datesinfo}', 'MeetingController@sendMail');
+
 // Login/logout
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
