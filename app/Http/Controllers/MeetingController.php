@@ -105,6 +105,4 @@ class MeetingController extends Controller
     {
         return view('dashboard');
     }
-
-    
 }
