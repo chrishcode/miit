@@ -121,12 +121,12 @@ class MeetingController extends Controller
 
     public function sendMail($bookedDate) 
     {
-        $mailContent = 'Your meeting with' . ' ' . '{$userName}' . ' ' . 'is scheduled at' . ' ' . $bookedDate;
+        $mailContent = 'Your meeting' . ' ' . '{$meetingLink}' . ' ' . 'is scheduled at' . ' ' . $bookedDate;
 
         Mail::raw($mailContent, function ($message) {
             $message->from('miit.io.email@gmail.com', 'Miit.io');
             $message->to('miit.io.email@gmail.com', 'Petter Romhagen');
-            $message->subject('Your meeting with {{$userName} is scheduled!');
+            $message->subject('Your meeting {{$meetingLink} is scheduled!');
         });
     }
 }
