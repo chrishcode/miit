@@ -48,6 +48,8 @@
 
 {{-- Hämtar urlid för möte så man kan använda i javascript --}}
 <div id="url" data-url-id="{{ $meeting[0]['url_id'] }}">
+{{-- Hämtar dates count för möte så man kan använda i javascript --}}
+<div id="datescount" data-dates="{{ $dates[0] }}">
 
 {{-- Hämta möte med ajax --}}
 {{-- Flytta till master sen, eller helst separat js fil --}}
@@ -82,7 +84,7 @@ $(document).ready(function(){
     	});
     });
 
-    //Yes klicke
+    //Yes klick
     $("#yes").click(function() {
    
     	var urlId = $('#url').data("url-id");
@@ -97,33 +99,65 @@ $(document).ready(function(){
     	window.location.href = 'http://localhost:8000/sendmail/' + urlId + '/' + bookedDate;
     });
 
-    //den här ska byta till nästa date när man clickar på nej-knappen
-    $("#no").click(function(){
-    	var dateId = $(this).attr('id');
+    //No klick
+    var count = 0;
+    $("#no").click(function() {
+    	count++;
+		// var dateId = $(".moredate").attr('id');
+		var dateId = count;
     	var urlId = $('#url').data("url-id");
-    	
-        $.ajax({
-        	url: "http://localhost:8000/json/" + urlId, 
-        	success: function(result) {
-        		var meeting = result;
-        		
-        		//delar upp datum i år datum och tid
-        		var fullDate = meeting[0].dates[dateId].date;
-        		year = fullDate.substring(6, 10);
+    	var datesCount = $('#datescount').data("dates");
+    	// console.log(datesCount.length);
+    	if(count < datesCount.length) {
+	        $.ajax({
+	        	url: "http://localhost:8000/json/" + urlId, 
+	        	success: function(result) {
+	        		var meeting = result;
+	        		
+	        		//delar upp datum i år datum och tid
+	        		var fullDate = meeting[0].dates[dateId].date;
+	        		year = fullDate.substring(6, 10);
 
-        		date = fullDate.substring(0, 5);
-        		date = date.replace('-', '/');
+	        		date = fullDate.substring(0, 5);
+	        		date = date.replace('-', '/');
 
-        		time = fullDate.substring(11, 16);
+	        		time = fullDate.substring(11, 16);
 
-        		$(".datetime .caltop p").text(year);
-        		$(".datetime .timedate").text(date);
-        		$(".datetime .timetime").text(time); 
-        		
-            	console.log(meeting[0].dates[dateId].date);//bara för att testa
-            	
-        	}
-    	});
+	        		$(".datetime .caltop p").text(year);
+	        		$(".datetime .timedate").text(date);
+	        		$(".datetime .timetime").text(time); 
+	        		
+	            	console.log(meeting[0].dates[dateId].date);//bara för att testa
+	            	
+	        	}
+	    	});
+    	}
+    	else {
+    		count = 0;
+
+    		$.ajax({
+	        	url: "http://localhost:8000/json/" + urlId, 
+	        	success: function(result) {
+	        		var meeting = result;
+	        		
+	        		//delar upp datum i år datum och tid
+	        		var fullDate = meeting[0].dates[count].date;
+	        		year = fullDate.substring(6, 10);
+
+	        		date = fullDate.substring(0, 5);
+	        		date = date.replace('-', '/');
+
+	        		time = fullDate.substring(11, 16);
+
+	        		$(".datetime .caltop p").text(year);
+	        		$(".datetime .timedate").text(date);
+	        		$(".datetime .timetime").text(time); 
+	        		
+	            	console.log(meeting[0].dates[dateId].date);//bara för att testa
+	            	
+	        	}
+	    	});
+    	}
     });
 });
 </script>
