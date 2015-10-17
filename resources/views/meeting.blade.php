@@ -95,7 +95,7 @@ $(document).ready(function(){
     	var bookedDate = date + '-' + year + ' ' + time; //datum som finns i caltop
     	// console.log(bookedDate);
 		
-		var r = confirm("Do you want to book this meeting at:" + " " + bookedDate);
+		var r = confirm("Do you want to book this meeting at:" + " " + bookedDate + "?");
 		
 		if (r == true) {
     		window.location.href = 'http://localhost:8000/sendmail/' + urlId + '/' + bookedDate;
