@@ -85,8 +85,7 @@ $(document).ready(function(){
     });
 
     //Yes klick
-    $("#yes").click(function() {
-   
+    $("#yes").click(function() {		
     	var urlId = $('#url').data("url-id");
 
         var year = $(".datetime .caltop p").text();
@@ -95,8 +94,12 @@ $(document).ready(function(){
 		var time = $(".datetime .timetime").text(); 
     	var bookedDate = date + '-' + year + ' ' + time; //datum som finns i caltop
     	// console.log(bookedDate);
-
-    	window.location.href = 'http://localhost:8000/sendmail/' + urlId + '/' + bookedDate;
+		
+		var r = confirm("Do you want to book this meeting at:" + " " + bookedDate);
+		
+		if (r == true) {
+    		window.location.href = 'http://localhost:8000/sendmail/' + urlId + '/' + bookedDate;
+    	}
     });
 
     //No klick
