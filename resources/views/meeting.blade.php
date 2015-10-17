@@ -22,7 +22,7 @@
 
 		<div class="btns">
 			<input id="no" class="btn btn-danger" type="button" value="No">
-			<input class="btn btn-success" type="button" value="Yes">
+			<input id="yes" class="btn btn-success" type="button" value="Yes">
 		</div>
 
 		<a href="#" class="questionlink"><div class="circle">?</div></a>
@@ -80,6 +80,21 @@ $(document).ready(function(){
             	
         	}
     	});
+    });
+
+    //Yes klicke
+    $("#yes").click(function() {
+   
+    	var urlId = $('#url').data("url-id");
+
+        var year = $(".datetime .caltop p").text();
+		var date = $(".datetime .timedate").text();
+		date = date.replace('/', '-');
+		var time = $(".datetime .timetime").text(); 
+    	var bookedDate = date + '-' + year + ' ' + time; //datum som finns i caltop
+    	// console.log(bookedDate);
+
+    	window.location.href = 'http://localhost:8000/sendmail/' + urlId + '/' + bookedDate;
     });
 
     //den här ska byta till nästa date när man clickar på nej-knappen

@@ -119,14 +119,32 @@ class MeetingController extends Controller
         return $meeting;
     }
 
-    public function sendMail($bookedDate) 
+    //Hämtar rätt möte och datum som ska bokas. Skickar sedan ett mail till ägaren av mötet som informerar
+    //om att mötet är bokat och vilken tid.
+    public function sendMail($urlId, $bookedDate) 
     {
-        $mailContent = 'Your meeting' . ' ' . '{$meetingLink}' . ' ' . 'is scheduled at' . ' ' . $bookedDate;
+        $meeting = Meeting::where('url_id', '=', $urlId)->get();
+        $emailTo = $meeting[0]['user_email'];
+        $emailName = $meeting[0]['user_name'];
+        $meetingTitle = '"' . $meeting[0]['title'] . '"';
 
-        Mail::raw($mailContent, function ($message) {
+        $mailContent = 'Your meeting' . ' ' . $meetingTitle . ' ' . 'is scheduled at' . ' ' . $bookedDate;
+
+        Mail::raw($mailContent, function ($message) use($emailTo, $emailName, $meetingTitle) {
             $message->from('miit.io.email@gmail.com', 'Miit.io');
-            $message->to('miit.io.email@gmail.com', 'Petter Romhagen');
-            $message->subject('Your meeting {{$meetingLink} is scheduled!');
+            $message->to($emailTo, $emailName);
+            $message->subject('Your meeting' . ' ' . $meetingTitle . ' ' . 'is scheduled!');
         });
+
+        $meeting[0]->status = 'green';
+        $meeting[0]->save();
+
+        return redirect('meetingsuccess');
+    }
+
+    //retunerar successpage när ett möte har bokats
+    public function meetingSuccess() 
+    {
+        return view('success');
     }
 }

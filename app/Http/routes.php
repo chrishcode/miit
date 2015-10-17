@@ -22,6 +22,8 @@ Route::get('create', 'MeetingController@create');
 
 Route::get('dashboard', 'MeetingController@dashboard');
 
+Route::get('meetingsuccess', 'MeetingController@meetingSuccess');
+
 // Route::get('meeting', 'MeetingController@show');
 
 Route::get('home', function() {
@@ -33,7 +35,9 @@ Route::get('/{id}', 'MeetingController@show');
 //hämtar ett specifikt möte i json-format
 Route::get('json/{id}', 'MeetingController@showjson');
 
-Route::get('sendmail/{datesinfo}', 'MeetingController@sendMail');
+Route::get('sendmail/{urlId}/{bookedDate}', 'MeetingController@sendMail');
+
+
 
 // Login/logout
 Route::get('auth/login', 'Auth\AuthController@getLogin');
