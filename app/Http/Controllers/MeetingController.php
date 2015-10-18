@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Meeting;
 use App\Dates;
+use Auth;
+use Form;
+use App\User;
+use Request;
+
 
 class MeetingController extends Controller
 {
@@ -55,17 +60,25 @@ class MeetingController extends Controller
      */
 
     // lägg tillbaka $id när det är dags för databaskoppling
-    public function show($id)
+        public function dashboard()
     {
-        $meeting = Meeting::where('url_id', '=', $id)->get();
+    //     // $meeting = Meeting::where('', '=', $id)->get();
 
-        $dates = array();
-        array_push($dates, $meeting[0]->dates);
+    //     // $dates = array();
+    //     // array_push($dates, $meeting[0]->dates);
 
-        // return $meeting;
-        // return $dates;
-        return view('meeting', compact('meeting', 'dates'));
-    }
+    //     // // return $meeting;
+    //     // // return $dates;
+    //     // return view('dashboard', compact('meeting', 'dates'));
+
+    $user = Auth::user();
+
+
+    $meeting = Meeting::where('user_email', '=', $user->email)->get();
+
+    return view('dashboard', compact('meeting', 'user'));
+
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -87,7 +100,23 @@ class MeetingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->name = Request::get('name');
+        $user->email = Request::get('email');
+        $user->password = Request::get('password');
+
+        $user->save();
+
+        return redirect('dashboard')->withMessage('User information was updated');
+
+        //return Request::all();
+        
+       // return $user;
+
+        //return Request::get('name');
+
+
     }
 
     /**
@@ -101,8 +130,4 @@ class MeetingController extends Controller
         //
     }
 
-    public function dashboard()
-    {
-        return view('dashboard');
-    }
 }

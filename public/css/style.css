@@ -262,6 +262,10 @@ body {
 	margin-top: -20px;
 }
 
+.meetingstable{
+	text-align: center;
+}
+
 #meeting1{
 	margin: 0px auto 40px auto;
 	text-align: center;
@@ -630,3 +634,11 @@ body {
 
 /*Auth pages end*/
 
+.alert-success{
+	margin-bottom: 80px;
+	text-align: center;
+}
+
+.statusimg{
+	width:24px;
+}

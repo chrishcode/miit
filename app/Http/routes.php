@@ -15,6 +15,11 @@
 //     return view('welcome');
 // });
 
+// Route::get('about', function () {
+
+// 	return view('about');
+// });
+
 Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');
@@ -22,13 +27,17 @@ Route::get('create', 'MeetingController@create');
 
 Route::get('dashboard', 'MeetingController@dashboard');
 
+//Route::get('updateuser/{id}', 'MeetingController@update');
+
+Route::get('/{id}', 'MeetingController@show');
+
 // Route::get('meeting', 'MeetingController@show');
 
 Route::get('home', function() {
 	return view('homepage');
 });
 
-Route::get('/{id}', 'MeetingController@show');
+
 
 // Login/logout
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -38,3 +47,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // register
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+//Route::resource('updatedashboard', 'MeetingController');
+
+
+Route::resource('user', 'MeetingController', ['only'=> ['update']]);
