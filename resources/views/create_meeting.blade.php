@@ -4,23 +4,28 @@
 
 <div id="content" class="container">
 
-<form id="newmeetingform">
+<form id="newmeetingform" method="POST" action="{{ URL::route('meeting.store') }}">
 
 <h2 id="newmeeting">New meeting</h2>
 
 <div class="form-group">
         <img class="edit-name" alt="User" src="img/edit-name.png">
-        <input type="text" class="form-control" id="newmeetingform1" placeholder="Name">
+        <input type="text" name="name" class="form-control" placeholder="Name">
   </div>
 
   <div class="form-group">
         <img class="edit-name" alt="Email" src="img/edit-email.png">
-        <input type="text" class="form-control" id="newmeetingform2" placeholder="Email">
+        <input type="text" name="email" class="form-control" placeholder="Email">
     </div>
+
+    <div class="form-group">
+        <img class="edit-name" alt="User" src="img/edit-name.png">
+        <input type="text" name="title" class="form-control" placeholder="Title">
+  </div>
 
     <div class="form-group" id="description">
   <img class="edit-name" alt="User" src="img/edit-name.png">
-  <textarea class="form-control" rows="3" id="newmeetingform3" placeholder="Description"></textarea>
+  <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
 </div>
 
 
@@ -31,48 +36,19 @@
 
   <div class="form-group" id="emailinvite">
      <img class="edit-name" alt="Email" src="img/edit-email.png">
-    <input type="text" class="form-control" id="newmeetingform4" placeholder="Email/Invite">
+    <input type="text" name="emailinvite" class="form-control" placeholder="Email/Invite">
   </div>
- 
-  <button type="submit" id="button-newmeeting" class="btn btn-success">New meeting</button>
 
+  <input type="submit" value="save">
+
+ {{--  <a href="{{ URL::route('meetings.create') }}" class="btn btn-success">New meeting</a> --}}
+
+ {{--  <button type="submit" id="button-newmeeting" class="btn btn-success">New meeting</button> --}}
+
+{!! csrf_field() !!}
 </form>
 
-{{-- <form id="Meetingform">
 
-<h2 id="newmeeting">New meeting</h2>
-
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Name">
-  </div>
-
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Email">
-  </div>
-
-  <div class="form-group">
-  <label for="description">Description</label>
-  <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
-</div>
-
-  <div class="form-group" id="timeinput">
-  <label for="exampleInputEmail1">Add dates</label>
-	<input id="datetimepicker" type="text" class="form-control" placeholder="Add dates">
-	</div>
-
-	<a id="btn2" href="#">Add</a>
-
-	 <div class="form-group">
-    <label for="email/invite">Email/Invite</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Email/Invite">
-  </div>
- 
-  <button type="submit" class="btn btn-success">New meeting</button>
-
-
-</form> --}}
 </div>
 
 @endsection

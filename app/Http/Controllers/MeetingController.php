@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Meeting;
 use App\Dates;
+use Mail;
 
 class MeetingController extends Controller
 {
@@ -44,7 +45,40 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        // dd($input);
+
+        $urlId = strtr(base64_encode(openssl_random_pseudo_bytes(5)), "+/=", "XXX");
+        $meeting = new Meeting;
+        $meeting->url_id = $urlId;
+        $meeting->user_name = $input['name'];
+        $meeting->user_email = $input['email'];
+        $meeting->title = $input['title'];
+        $meeting->description = $input['description'];
+        $meeting->status = 'yellow';
+        $meeting->save();
+
+        foreach($input['dates'] as $date) {
+            $dates = new Dates;
+            $dates->url_id = $urlId;
+            $dates->date = $date;
+            $dates->save();
+        }
+
+        $emailTo = $input['emailinvite'];
+        $meetingTitle = '"' . $input['title'] . '"';
+        $meetingLink = 'http://localhost:8000/' . $urlId;
+        $meetingOwner = $input['name'];
+
+        $mailContent = 'You have been invited to a meeting with' . ' ' . $meetingOwner . '.' . 'To schedule this meeting visit this link:' . $meetingLink;
+
+        Mail::raw($mailContent, function ($message) use($emailTo, $meetingLink, $meetingTitle) {
+            $message->from('miit.io.email@gmail.com', 'Miit.io');
+            $message->to($emailTo, ' ');
+            $message->subject('You have been invited to a meeting on Miit.io');
+        });
+
+        return redirect('createdmeetingsuccess');
     }
 
     /**
@@ -104,5 +138,11 @@ class MeetingController extends Controller
     public function dashboard()
     {
         return view('dashboard');
+    }
+
+    //retunerar successpage när ett möte har skapats
+    public function createdMeetingSuccess()
+    {
+        return view('createdsuccess');
     }
 }

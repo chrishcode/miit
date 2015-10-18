@@ -19,8 +19,11 @@ Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');
 
+Route::get('store', 'MeetingController@store');
 
 Route::get('dashboard', 'MeetingController@dashboard');
+
+Route::get('createdmeetingsuccess', 'MeetingController@createdMeetingSuccess');
 
 // Route::get('meeting', 'MeetingController@show');
 
@@ -38,3 +41,5 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // register
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::resource('meeting', 'MeetingController');

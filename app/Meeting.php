@@ -12,4 +12,6 @@ class Meeting extends Model
     {
     	return $this->hasMany('App\Dates', 'url_id', 'url_id');
     }
+
+    protected $fillable = ['name', 'email', 'description', 'date', 'emailinvite'];
 }
