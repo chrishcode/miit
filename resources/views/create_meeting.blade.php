@@ -39,7 +39,7 @@
     <input type="text" name="emailinvite" class="form-control" placeholder="Email/Invite">
   </div>
 
-  <input type="submit" value="save">
+  <input class="btn btn-success" type="submit" value="save">
 
  {{--  <a href="{{ URL::route('meetings.create') }}" class="btn btn-success">New meeting</a> --}}
 
