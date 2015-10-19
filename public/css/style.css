@@ -166,35 +166,31 @@ body {
 
 /*dashboard user*/
 .usericon{
+	position: relative;
+	left: 50%;
 	width: 200px;
 	height: 200px;
-	margin-top: 20px;
-	margin-left: 352px;
+	margin-left: -100px;
 	color: #34495e;
 	opacity: 0.6;
+	margin-top: -30px;
 }
 
 #dashboard{
-	margin: 5px auto 40px auto;
 	font-size: 40px;
 	text-align: center;
 	font-weight: 300;
-	margin-top: 15px;
 	color: #34495e;
+	margin-left: 9px;
 }
 
 #dashboardform{
 	position: relative;
-	left: 24%;
-	width: 320px;
-	margin-top: -24px;
+	left: 50%;
+	margin-left: -160px;
+	width: 330px;
 }
 
-#button-dashboard{
-	width: 120px;
-	margin-left: 77px;
-
-}
 
 .edit-name{
 	width: 20px;
@@ -240,7 +236,6 @@ body {
 .remove{
 	text-decoration: none;
 	color: #34495e;
-
 }
 
 .remove:hover{
@@ -260,6 +255,11 @@ body {
 .hr{
 	width: 500px;
 	margin-top: -20px;
+}
+
+.meetingstable{
+	text-align: center;
+
 }
 
 #meeting1{
@@ -629,6 +629,16 @@ body {
 
 
 /*Auth pages end*/
+
+
+.alert-success{
+	margin-bottom: 80px;
+	text-align: center;
+}
+
+.statusimg{
+	width:24px;
+}
 
 
 /*Success page*/

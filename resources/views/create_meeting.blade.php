@@ -3,10 +3,9 @@
 @section('content')
 
 <div id="content" class="container">
+<h2 id="newmeeting">New meeting</h2>
 
 <form id="newmeetingform" method="POST" action="{{ URL::route('meeting.store') }}">
-
-<h2 id="newmeeting">New meeting</h2>
 
 <div class="form-group">
         <img class="edit-name" alt="User" src="img/edit-name.png">
@@ -39,7 +38,7 @@
     <input type="text" name="emailinvite" class="form-control" placeholder="Email/Invite">
   </div>
 
-  <input class="btn btn-success" type="submit" value="save">
+  <input type="submit" value="new meeting" class="btn btn-success">
 
  {{--  <a href="{{ URL::route('meetings.create') }}" class="btn btn-success">New meeting</a> --}}
 

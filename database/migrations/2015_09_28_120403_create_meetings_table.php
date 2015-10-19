@@ -16,7 +16,7 @@ class CreateMeetingsTable extends Migration
             $table->increments('id');
             $table->string('url_id');
             $table->string('user_name');
-            $table->string('user_email')->unique();
+            $table->string('user_email');
             $table->string('title');
             $table->text('description');
             $table->string('status');

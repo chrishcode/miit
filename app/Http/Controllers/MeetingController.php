@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Meeting;
 use App\Dates;
+use Auth;
+use Form;
+use App\User;
+use Request;
 use Mail;
+
 
 class MeetingController extends Controller
 {
@@ -45,7 +50,7 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
+        $input = Request::all();
         // dd($input);
 
         $urlId = strtr(base64_encode(openssl_random_pseudo_bytes(5)), "+/=", "XXX");
@@ -92,14 +97,25 @@ class MeetingController extends Controller
     public function show($id)
     {
         $meeting = Meeting::where('url_id', '=', $id)->get();
-
         $dates = array();
         array_push($dates, $meeting[0]->dates);
-
         // return $meeting;
         // return $dates;
         return view('meeting', compact('meeting', 'dates'));
     }
+
+
+    // lägg tillbaka $id när det är dags för databaskoppling
+    public function dashboard()
+    {
+
+    $user = Auth::user();
+
+    $meeting = Meeting::where('user_email', '=', $user->email)->get();
+
+    return view('dashboard', compact('meeting', 'user'));
+
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -121,7 +137,23 @@ class MeetingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->name = Request::get('name');
+        $user->email = Request::get('email');
+        $user->password = Request::get('password');
+
+        $user->save();
+
+        return redirect('dashboard')->withMessage('User information was updated');
+
+        //return Request::all();
+        
+       // return $user;
+
+        //return Request::get('name');
+
+
     }
 
     /**
@@ -133,12 +165,6 @@ class MeetingController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    //visar dashboard
-    public function dashboard()
-    {
-        return view('dashboard');
     }
 
 
@@ -187,4 +213,5 @@ class MeetingController extends Controller
     {
         return view('success');
     }
+
 }

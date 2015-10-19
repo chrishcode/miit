@@ -66,7 +66,9 @@
 </div>
 
 <script src="{{ URL::asset('http://code.jquery.com/jquery-1.8.2.js') }}"></script>
+
 <script src="{{ URL::asset('http://code.jquery.com/ui/1.9.0/jquery-ui.js') }}"></script>
+
 <script src="{{ URL::asset('jquery-ui-timepicker-addon.js') }}"></script>
 <script src="{{ URL::asset('jquery-ui-timepicker-addon.min.js') }}"></script>
 <script src="{{ URL::asset('jquery-ui-sliderAccess.js') }}"></script>
