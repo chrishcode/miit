@@ -2,9 +2,11 @@
 @section('content')
 
 <div id="content" class="container">
+
 <img class="usericon" alt="user" src="img/usericon.png">
 
-<h2 id="dashboard">User Information</h2>
+
+<h2 id="dashboard">User information</h2>
 
 @if(Session::has('message'))
 	<div class="alert alert-success">
@@ -12,8 +14,10 @@
 	</div>
 @endif
 
+
 <form id="dashboardform" method="POST" action="{{ URL::route('user.update', $user->id) }}">
-	
+
+
 	<input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -32,30 +36,31 @@
 	    	<input type="password" name="password" class="form-control" id="dashboardform" placeholder="Password">
 	  </div>
  		
-  		<button type="submit" id="button-dashboard" class="btn btn-success">Save</button>
+  		<button type="submit" class="btn btn-success">Save</button>
   	
 
 </form>
-
-
 
 	<h2 id="dashboard-meetings">My meetings</h2>
 
 @if($meeting->count())
 
-<hr class="hr"> 
+<hr class="hr">
 <div class="meetingstable">
 @foreach($meeting as $meeting)
 	{{ $meeting->title }}
 <img class="statusimg" src="img/{{ $meeting->status }}.png">
 	<br>
 	<br>
+
+
 @endforeach
-</div>
-</div>
-@endif
-@stop
 
 </div>
+
+
+@endif
+</div>
+@stop
 
 @endsection
