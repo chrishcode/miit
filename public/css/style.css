@@ -72,7 +72,7 @@ body {
 	position:relative;
 }
 #header {
-	
+
 }
 #content {
 	margin-top: 100px;
@@ -94,7 +94,7 @@ body {
 	text-align: center;
 	font-size: 12px;
 	margin: 0 auto;
-	
+
 }
 
 #footer ul li{
@@ -121,7 +121,7 @@ body {
 	border: 1px solid #BBB;
 	border-right: 1;
 	padding: 5px;
-	
+
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
@@ -133,7 +133,7 @@ body {
 	border-top-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	
+
 	/*outline: none;*/
 }
 
@@ -240,7 +240,7 @@ body {
 .remove{
 	text-decoration: none;
 	color: #34495e;
-	
+
 }
 
 .remove:hover{
@@ -294,7 +294,7 @@ body {
 	margin-top: -60px;
 	width: 27px;
 	height: 27px;
-} 
+}
 
 #meet2{
 	text-align: center;
@@ -646,3 +646,4 @@ body {
 	color: #74F7A8;
 	margin-right: 20px;
 }
+
