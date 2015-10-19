@@ -39,6 +39,13 @@
                     <a href="{{ url('auth/register') }}">Register</a>
                 @endif
                 </li>
+
+                <li>
+                @if(Auth::check())
+                    <a href="{{ url('dashboard') }}">Dashboard</a>
+                @endif
+                </li>
+
                 <li>
                 {{-- Kollar om användaren är inloggad --}}
                 @if(Auth::check())
@@ -58,8 +65,6 @@
 
 			<ul>
 				<li><a href="#"> &copy; Miit.io</a></li>
-				<li><a href="{{ url('/about') }}">About</a></li>
-				<li><a href="{{ url('/contact') }}">Contact</a></li>
 			</ul>
 
 	</div>

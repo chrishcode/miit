@@ -38,7 +38,7 @@
     <input type="text" name="emailinvite" class="form-control" placeholder="Email/Invite">
   </div>
 
-  <input type="submit" value="new meeting" class="btn btn-success">
+  <input type="submit" value="New meeting" class="btn btn-success">
 
  {{--  <a href="{{ URL::route('meetings.create') }}" class="btn btn-success">New meeting</a> --}}
 
