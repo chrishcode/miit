@@ -20,22 +20,33 @@
 // 	return view('about');
 // });
 
+Route::get('createdmeetingsuccess', 'MeetingController@createdMeetingSuccess');
+
+Route::get('meetingsuccess', 'MeetingController@meetingSuccess');
+
 Route::get('/', 'MeetingController@homepage');
 
 Route::get('create', 'MeetingController@create');
 
+Route::get('store', 'MeetingController@store');
+
+Route::get('home', 'MeetingController@dashboard');
 
 Route::get('dashboard', 'MeetingController@dashboard');
 
-//Route::get('updateuser/{id}', 'MeetingController@update');
-
 Route::get('/{id}', 'MeetingController@show');
 
-// Route::get('meeting', 'MeetingController@show');
 
-Route::get('home', function() {
-	return view('homepage');
-});
+
+
+
+
+
+
+//hämtar ett specifikt möte i json-format
+Route::get('json/{id}', 'MeetingController@showjson');
+
+Route::get('sendmail/{urlId}/{bookedDate}', 'MeetingController@sendMail');
 
 
 
@@ -48,8 +59,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-
-//Route::resource('updatedashboard', 'MeetingController');
-
-
+//Resource routes för formulären
 Route::resource('user', 'MeetingController', ['only'=> ['update']]);
+
+Route::resource('meeting', 'MeetingController');
+

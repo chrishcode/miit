@@ -30,7 +30,7 @@
             <div class="navbar-header">
                 <a class="logo navbar-brand" href="{{ url('/') }}"><img class="logoicon" alt="logo" src="../img/logoicon.png">Miit.io</a>
             </div>
-          
+
             <ul class="nav navbar-nav">
                 <li>
                 @if(Auth::check())
@@ -41,11 +41,11 @@
                 </li>
                 <li>
                 {{-- Kollar om användaren är inloggad --}}
-                @if(Auth::check()) 
+                @if(Auth::check())
                     <a href="{{ url('auth/logout') }}">Logout</a>
-                @else 
+                @else
                 	<a href="{{ url('auth/login') }}">Login</a>
-                @endif    
+                @endif
                 </li>
             </ul>
         </div>
@@ -55,18 +55,20 @@
 
 
 		<div id="footer" class="container">
-	
+
 			<ul>
 				<li><a href="#"> &copy; Miit.io</a></li>
 				<li><a href="{{ url('/about') }}">About</a></li>
 				<li><a href="{{ url('/contact') }}">Contact</a></li>
 			</ul>
-		
+
 	</div>
-</div> 
+</div>
 
 <script src="{{ URL::asset('http://code.jquery.com/jquery-1.8.2.js') }}"></script>
-<script src="{{ URL::asset('http://code.jquery.com/ui/1.9.0/jquery-ui.js') }}"></script> 
+
+<script src="{{ URL::asset('http://code.jquery.com/ui/1.9.0/jquery-ui.js') }}"></script>
+
 <script src="{{ URL::asset('jquery-ui-timepicker-addon.js') }}"></script>
 <script src="{{ URL::asset('jquery-ui-timepicker-addon.min.js') }}"></script>
 <script src="{{ URL::asset('jquery-ui-sliderAccess.js') }}"></script>
@@ -75,13 +77,13 @@ $(function() {
 
 	$("a#add").click(function(){
         $(options).fadeIn("slow").appendTo("#timeinput");
-        i++;    
+        i++;
         return false;
     });
 
     //fadeout selected item and remove
     $('.remove').live('click', function() {
-        $(this).parent().fadeOut(300, function(){ 
+        $(this).parent().fadeOut(300, function(){
             $(this).empty();
             return false;
         });
@@ -90,7 +92,7 @@ $(function() {
     var options = '<p><input type="text" class="datetimepicker" placeholder=" Add dates" name="dates[]" value="" size="10" />	<br><a href="#" class="remove">Remove</a></p>';
 
     $('.datetimepicker').live('click', function() {
-        $(this).datetimepicker('destroy').datetimepicker({changeMonth: true,changeYear: true,dateFormat: "yy-mm-dd",
+        $(this).datetimepicker('destroy').datetimepicker({changeMonth: true,changeYear: true,format: "d-m-Y H:i",
         	yearRange: "1900:+10",showOn:'focus'}).focus();
     });
 
